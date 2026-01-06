@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: erp_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: marble_erp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Backend Service (Optional for local dev if running via npm, but good for production)
+  # backend:
+  #   build: ./server
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     DATABASE_URL: postgres://admin:password123@postgres:5432/marble_erp
+  #   depends_on:
+  #     - postgres
+
+volumes:
+  postgres_data:

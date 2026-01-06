@@ -1,0 +1,21 @@
+node_modules/
+**/node_modules/
+*.tsbuildinfo
+.DS_Store
+*.pem
+coverage/
+logs/
+
+# Environment files
+.env*
+
+# Next.js build outputs
+client/.next/
+client/out/
+client/build/
+
+# Server build outputs
+server/dist/
+
+# Vercel
+.vercel/
